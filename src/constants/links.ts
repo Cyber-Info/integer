@@ -8,6 +8,7 @@ export const homepage = "https://cyber.info";
 // documentation
 export const docsUrl = `${homepage}/`;
 export const cacheHelpUrl = `${docsUrl}/`;
+export const emojiHelpUrl = `${docsUrl}/`;
 export const flowHelpUrl = `${docsUrl}/`;
 export const regexHelpUrl = `${docsUrl}/`;
 export const premiumHelpUrl = `${docsUrl}/`;

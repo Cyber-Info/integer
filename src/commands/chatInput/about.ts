@@ -1,7 +1,7 @@
 import { release, type } from "os";
 import { version as djsVersion } from "discord.js";
 import config from "../../config";
-import { homepage, supportServerUrl } from "../../constants/links";
+import { homepage, premiumHelpUrl, supportServerUrl } from "../../constants/links";
 import { getAllStats } from "../../utils/cluster";
 import { bytesToHumanReadable } from "../../utils/human";
 import { fitText } from "../../utils/text";
@@ -25,7 +25,7 @@ const command: ChatInputCommand = {
     return void interaction.reply({
       embeds: [
         {
-          title: `Bot Information - ${interaction.client.user.tag}`,
+          title: `Bot Information - @${interaction.client.user.username}`,
           description: "Integer is an advanced counting bot which can manage a counting channel in your guild. With a simple setup, your channel is ready.",
           fields: [
             // max 5 lines each

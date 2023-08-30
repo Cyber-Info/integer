@@ -49,7 +49,7 @@ const command: ChatInputCommand = {
       });
     }
 
-    const rootChannel = channel.isThread() && channel.parent as CountingChannelRootChannel | null || channel as CountingChannelRootChannel;
+    const rootChannel = (channel.isThread() ? channel.parent as CountingChannelRootChannel | null : null) ?? channel as CountingChannelRootChannel;
     if (!([...countingChannelRootChannels] as ChannelType[]).includes(rootChannel.type)) {
       return void interaction.reply({
         content: "❌ You can't link this channel because the parent is not a valid root channel.",
@@ -61,7 +61,10 @@ const command: ChatInputCommand = {
     const currentPermissions = calculatePermissionsForChannel(rootChannel, await interaction.guild.members.fetch({ user: interaction.client.user, force: false }));
     if (!currentPermissions.has(requiredPermissions, true)) {
       return void interaction.reply({
-        content: `⚠ I am missing permissions in the channel <#${rootChannel.id}>: ${requiredPermissions.map(bigint => Object.entries(PermissionsBitField.Flags).find(([, permission]) => permission === bigint)?.[0]).join(", ")}`,
+        content: `⚠ I am missing permissions in the channel <#${rootChannel.id}>: ${requiredPermissions
+          .map(bigint => Object.entries(PermissionsBitField.Flags).find(([, permission]) => permission === bigint && !currentPermissions.has(permission))?.[0])
+          .filter(Boolean)
+          .join(", ")}`,
         ephemeral: true,
       });
     }

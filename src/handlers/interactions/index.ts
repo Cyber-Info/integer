@@ -9,6 +9,7 @@ import type { ContextMenuCommand } from "../../commands/menu";
 import config from "../../config";
 import { PermissionLevel, permissionLevels } from "../../constants/permissions";
 import { getGuildDocument } from "../../database";
+import { legacyImportDefault } from "../../utils/import";
 import commandsLogger from "../../utils/logger/commands";
 import autocompleteHandler from "./autocompletes";
 import chatInputCommandHandler from "./chatInputCommands";
@@ -59,7 +60,7 @@ async function nestCommands(relativePath: string, type: "CHAT_INPUT" | "MENU"): 
   const arr: ApplicationCommandData[] = [];
   for (const fileName of files.filter(file => !file.startsWith("_") && file !== "index.js")) {
     if (type === "MENU") {
-      const { default: command } = await import(`${relativePath}/${fileName}`) as { default: ContextMenuCommand };
+      const command = await legacyImportDefault<ContextMenuCommand>(require.resolve(`${relativePath}/${fileName}`));
       if (!command.premiumOnly || config.isPremium) {
         arr.push({
           name: fileName.split(".")[0]!,
@@ -72,7 +73,7 @@ async function nestCommands(relativePath: string, type: "CHAT_INPUT" | "MENU"): 
 
     if (type === "CHAT_INPUT") {
       if (fileName.includes(".")) {
-        const { default: command } = await import(`${relativePath}/${fileName}`) as { default: ChatInputCommand };
+        const command = await legacyImportDefault<ChatInputCommand>(require.resolve(`${relativePath}/${fileName}`));
         const name = fileName.split(".")[0]!;
         if (!command.premiumOnly || config.isPremium) {
           arr.push({
@@ -89,7 +90,7 @@ async function nestCommands(relativePath: string, type: "CHAT_INPUT" | "MENU"): 
           const subArr: Array<ApplicationCommandSubCommandData | ApplicationCommandSubGroupData> = [];
           for (const subFileName of subFiles.filter(file => !file.startsWith("_"))) {
             if (subFileName.includes(".")) {
-              const { default: command } = await import(`${relativeSubPath}/${subFileName}`) as { default: ChatInputCommand };
+              const command = await legacyImportDefault<ChatInputCommand>(require.resolve(`${relativeSubPath}/${subFileName}`));
               if (!command.premiumOnly || config.isPremium) {
                 subArr.push({
                   type: ApplicationCommandOptionType.Subcommand,
