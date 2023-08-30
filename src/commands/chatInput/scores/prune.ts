@@ -28,7 +28,7 @@ const command: ChatInputCommand = {
 
     return void interaction.editReply({
       content: `✅ Successfully pruned scores of counting channel <#${countingChannelId}>: removed ${amount}/${total} users from the list. Attached is a backup of their scores, in case this was a mistake.`,
-      files: [{ name: `Countr Pruned Scores of guild ${interaction.guildId} channel ${interaction.channelId}.json`, attachment: Buffer.from(JSON.stringify(backup, null, 2)) }],
+      files: [{ name: `Integer Pruned Scores of guild ${interaction.guildId} channel ${interaction.channelId}.json`, attachment: Buffer.from(JSON.stringify(backup, null, 2)) }],
     });
   },
 };

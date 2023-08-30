@@ -48,7 +48,7 @@ export default {
   },
 
   colors: {
-    primary: parseInt(process.env["COLOR_PRIMARY"] ?? "BD4632", 16),
+    primary: parseInt(process.env["COLOR_PRIMARY"] ?? "73C170", 16),
     success: parseInt(process.env["COLOR_SUCCESS"] ?? "43B581", 16),
     error: parseInt(process.env["COLOR_ERROR"] ?? "F14747", 16),
     warning: parseInt(process.env["COLOR_WARNING"] ?? "FAA619", 16),
@@ -79,7 +79,7 @@ export default {
     },
   },
 
-  statusPage: "https://uptime.countr.xyz",
+  statusPage: "https://status.cyber.info",
   isPremium: process.env["IS_PREMIUM"] === "true",
   hastebinLink: process.env["HASTEBIN_LINK"] ?? "https://hastebin.but-it-actually.works",
 } as const;

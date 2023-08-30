@@ -16,7 +16,7 @@ export default function handleAccess(client: Client<true>): void {
 }
 
 function leave(guild: Guild): void {
-  void webhook?.send(`Server **${guild.name}** (\`${guild.id}\`) owned by <@${guild.ownerId}> does not have access to use Countr and I've therefore purposefully left the server.`);
+  void webhook?.send(`Server **${guild.name}** (\`${guild.id}\`) owned by <@${guild.ownerId}> does not have access to use Integer and I've therefore purposefully left the server.`);
   mainLogger.info(`Left server "${guild.name}" (${guild.id}) for not having sufficient access.`);
   return void guild.leave();
 }

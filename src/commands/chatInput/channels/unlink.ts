@@ -19,7 +19,7 @@ const command: ChatInputCommand = {
 
     if (!document.channels.has(channelId)) {
       return void interaction.reply({
-        content: "❌ That channel is not linked to Countr.",
+        content: "❌ That channel is not linked to Integer.",
         ephemeral: true,
       });
     }
