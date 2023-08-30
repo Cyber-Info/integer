@@ -1,7 +1,7 @@
 import { release, type } from "os";
 import { version as djsVersion } from "discord.js";
 import config from "../../config";
-import { homepage, premiumHelpUrl, supportServerUrl } from "../../constants/links";
+import { homepage, supportServerUrl } from "../../constants/links";
 import { getAllStats } from "../../utils/cluster";
 import { bytesToHumanReadable } from "../../utils/human";
 import { fitText } from "../../utils/text";
@@ -11,7 +11,7 @@ import type { ChatInputCommand } from ".";
 const platform = `${type()} ${fitText(release(), 20)}`;
 
 const command: ChatInputCommand = {
-  description: "Get information about Countr",
+  description: "Get information about Integer",
   execute(interaction, ephemeral) {
     const allStats = getAllStats();
     if (!allStats) return void interaction.reply({ content: "❌ Stats is currently unavailable for this cluster, please try again later.", ephemeral: true });
@@ -26,7 +26,7 @@ const command: ChatInputCommand = {
       embeds: [
         {
           title: `Bot Information - @${interaction.client.user.username}`,
-          description: "Countr is an advanced counting bot which can manage a counting channel in your guild. With a simple setup, your channel is ready.",
+          description: "Integer is an advanced counting bot which can manage a counting channel in your guild. With a simple setup, your channel is ready.",
           fields: [
             // max 5 lines each
             {
@@ -64,8 +64,8 @@ const command: ChatInputCommand = {
             {
               name: "🔗 Links",
               value: [
-                config.isPremium ? `[**See what Premium offers!**](${premiumHelpUrl})` : `[**Invite me to your server!**](https://discord.com/application-directory/${interaction.client.user.id})`,
-                `**Support**: ${supportServerUrl}`,
+                "**Forked From:** [Countr Bot](https://github.com/countr/countr)",
+                `**Support Server**: ${supportServerUrl}`,
                 `**Website**: ${homepage}`,
               ].join("\n"),
               inline: true,

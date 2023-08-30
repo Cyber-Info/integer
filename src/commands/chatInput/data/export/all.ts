@@ -13,7 +13,7 @@ const command: ChatInputCommand = {
 
     return void interaction.editReply({
       content: "✅ Successfully exported all data stored on guild.",
-      files: [{ name: `Countr Data from guild ${interaction.guildId}.json`, attachment: Buffer.from(JSON.stringify(json, null, 2)) }],
+      files: [{ name: `Integer Data from guild ${interaction.guildId}.json`, attachment: Buffer.from(JSON.stringify(json, null, 2)) }],
     });
   },
 };

@@ -3,22 +3,22 @@ import { OAuth2Scopes } from "discord.js";
 import { countingChannelPermissions, countingChannelRootPermissions } from "./discord";
 
 // general
-export const homepage = "https://countr.xyz";
+export const homepage = "https://cyber.info";
 
 // documentation
-export const docsUrl = `${homepage}/docs`;
-export const cacheHelpUrl = `${docsUrl}/troubleshooting#role-member-caching`;
-export const emojiHelpUrl = `${docsUrl}/features/flows#how-to-use-emojis-in-flows`;
-export const flowHelpUrl = `${docsUrl}/features/flows`;
-export const regexHelpUrl = `${docsUrl}/features/regex-filters#test`;
-export const premiumHelpUrl = `${docsUrl}/premium`;
+export const docsUrl = `${homepage}/`;
+export const cacheHelpUrl = `${docsUrl}/`;
+export const emojiHelpUrl = `${docsUrl}/`;
+export const flowHelpUrl = `${docsUrl}/`;
+export const regexHelpUrl = `${docsUrl}/`;
+export const premiumHelpUrl = `${docsUrl}/`;
 
 // miscellaneous
-export const supportServerUrl = "https://promise.solutions/discord";
-export const privacyUrl = `${homepage}/privacy`;
-export const termsUrl = `${homepage}/terms`;
-export const sourceUrl = "https://github.com/countr";
-export const uptimeUrl = "https://status.countr.xyz";
+export const supportServerUrl = "https://discord.gg/cyberhub";
+export const privacyUrl = `${homepage}/legal/privacy`;
+export const termsUrl = `${homepage}/legal/tos`;
+export const sourceUrl = "https://github.com/Cyber-Info/integer";
+export const uptimeUrl = "https://status.cyber.info";
 
 // invite
 export const inviteUrl = (client: Client): string => client.generateInvite({

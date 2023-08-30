@@ -8,7 +8,7 @@ import numberSystems from "../../../constants/numberSystems";
 import type { CountingChannelSchema } from "../../../database/models/Guild";
 
 const command: ChatInputCommand = {
-  description: "Link a counting channel to Countr",
+  description: "Link a counting channel to Integer",
   options: [
     {
       type: ApplicationCommandOptionType.Channel,
@@ -44,7 +44,7 @@ const command: ChatInputCommand = {
 
     if (document.channels.has(channel.id)) {
       return void interaction.reply({
-        content: "❌ That channel is already linked to Countr.",
+        content: "❌ That channel is already linked to Integer.",
         ephemeral: true,
       });
     }
@@ -76,7 +76,7 @@ const command: ChatInputCommand = {
     } as CountingChannelSchema);
     document.safeSave();
 
-    return void interaction.reply({ content: `✅ Successfully linked channel <#${channel.id}> to Countr!`, ephemeral });
+    return void interaction.reply({ content: `✅ Successfully linked channel <#${channel.id}> to Integer!`, ephemeral });
   },
 };
 

@@ -10,6 +10,7 @@
     "start:manager": "node build/utils/cluster/manager",
     "test": "jest",
     "watch": "tsc -w",
+    "docker:dev": "docker-compose -f docker-compose-dev.yml up -d",
     "docker": "npm run docker:build && npm run docker:up",
     "docker:build": "docker compose --project-directory . build",
     "docker:down": "docker compose --project-directory . down",

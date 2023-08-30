@@ -11,7 +11,7 @@ const command: ChatInputCommand = {
 
     return void interaction.editReply({
       content: `✅ Successfully exported scores of <#${countingChannelId}>.`,
-      files: [{ name: `Countr Scores of guild ${interaction.guildId} channel ${interaction.channelId}.json`, attachment: Buffer.from(JSON.stringify(scores, null, 2)) }],
+      files: [{ name: `Integer Scores of guild ${interaction.guildId} channel ${interaction.channelId}.json`, attachment: Buffer.from(JSON.stringify(scores, null, 2)) }],
     });
   },
 };

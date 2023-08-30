@@ -40,7 +40,7 @@ const client = new Client({
     Partials.User,
   ],
   presence: { status: "dnd" },
-  rest: { userAgentAppendix: "Countr (countr.xyz)" },
+  rest: { userAgentAppendix: "Integer (cyber.info)" },
   shards: config.cluster.shards,
   shardCount: config.cluster.shardCount,
 });

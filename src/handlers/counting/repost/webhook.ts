@@ -15,7 +15,7 @@ export default async function repostWithWebhook(message: Message<true>, member: 
   let webhook = webhookCache.get(textChannel.id);
   if (!webhook) {
     const webhooks = await textChannel.fetchWebhooks();
-    webhook = webhooks.find(wh => wh.name === "Countr") ?? await textChannel.createWebhook({ name: "Countr", avatar: message.guild.members.me?.displayAvatarURL({ forceStatic: false, size: 64 }) ?? null });
+    webhook = webhooks.find(wh => wh.name === "Integer") ?? await textChannel.createWebhook({ name: "Integer", avatar: message.guild.members.me?.displayAvatarURL({ forceStatic: false, size: 64 }) ?? null });
     webhookCache.set(textChannel.id, webhook);
   }
 

@@ -26,7 +26,7 @@ const command: ChatInputCommand = {
 
     return void interaction.editReply({
       content: `✅ Here's the export of flow \`${flowId}\` from counting channel <#${countingChannelId}>.`,
-      files: [{ name: `Countr Flow ${flowId} of guild ${interaction.guildId} channel ${interaction.channelId}.json`, attachment: Buffer.from(JSON.stringify(flow, null, 2)) }],
+      files: [{ name: `Integer Flow ${flowId} of guild ${interaction.guildId} channel ${interaction.channelId}.json`, attachment: Buffer.from(JSON.stringify(flow, null, 2)) }],
     });
   },
 };
