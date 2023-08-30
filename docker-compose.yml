@@ -4,7 +4,7 @@ version: '3'
 
 services:
   bot:
-    build: .
+    image: cyberinfohq/integer:latest
     restart: always
     environment:
       - DATABASE_URI=$DATABASE_URI
@@ -16,7 +16,7 @@ services:
 #      - db
       - manager
   manager:
-    build: .
+    image: cyberinfohq/integer:latest
     restart: always
     command: "start:manager"
     environment:
